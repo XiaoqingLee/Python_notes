@@ -33,3 +33,30 @@ Traceback (most recent call last):
     from first import first_function
 ImportError: cannot import name 'first_function'
 ```
+
+version 1 
+
+```bash
+(venv) 
+# ~/PycharmProjects/Python_notes/Python循环导入的坑 [master ✗ (2ee32fd)] ➤ python3 start.py 
+I'm into start module
+I'm into first module
+I'm into second module
+I'm going out of second module
+I'm going out of first module
+I'm going out of start module
+(venv) 
+# ~/PycharmProjects/Python_notes/Python循环导入的坑 [master ✗ (2ee32fd)] ➤ python3 first.py 
+I'm into first module
+I'm into second module
+I'm into first module
+Traceback (most recent call last):
+  File "first.py", line 12, in <module>
+    from second import second_function
+  File "/home/lee/PycharmProjects/Python_notes/Python循环导入的坑/second.py", line 7, in <module>
+    from first import first_function
+  File "/home/lee/PycharmProjects/Python_notes/Python循环导入的坑/first.py", line 12, in <module>
+    from second import second_function
+ImportError: cannot import name 'second_function'
+ 
+```
