@@ -92,3 +92,13 @@ I'm going out of start module
 ```
 
 参考：https://blog.miguelgrinberg.com/post/flask-webcast-3-circular-dependencies
+
+说明：
+
+    1.from A import B 的实质是从头到尾执行模块A的语句；import A 也是从头到尾执行A的语句。
+
+    2.$ python3 foo.py 命令执行的时候 foo.py的名字是__main__。 （foo.py 是1号参数，python3 是 0号参数）
+
+    3.解释器访问模块A，在A脚本的一半的位置出现from B import Bfunction，控制结构要转给B，从头执行B的代码， 如果B脚本半腰处有form A import Afunction，这个时候分两种情况
+    （1）如果A.py 不是__main__ : python解释器记得之前访问过A，所以它从之前执行过的A的上半部分脚本寻找 Afunction的定义，能找到就找到， 找不到就如实报错：cannot find functionA。
+    （2）如果A.py 是 __main__ : 此时python解释器不认为A是之前访问过的A，只记得访问过__main__, 所以它会去从头执行__main__文件的一份拷贝。
