@@ -4,12 +4,12 @@
 
 print('I\'m into second module')
 
-from first import first_function
 
 
 def second_function():
     pass
 
 
+from first import first_function
 
 print('I\'m going out of second module')

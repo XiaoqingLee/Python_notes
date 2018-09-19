@@ -34,7 +34,7 @@ Traceback (most recent call last):
 ImportError: cannot import name 'first_function'
 ```
 
-version 1 
+version 1:
 
 ```bash
 (venv) 
@@ -60,3 +60,35 @@ Traceback (most recent call last):
 ImportError: cannot import name 'second_function'
  
 ```
+
+version 2:
+
+```bash
+(venv) 
+# ~/PycharmProjects/Python_notes/Python循环导入的坑 [master ✗ (d2c9175)] ➤ python3 first.py 
+I'm into first module
+I'm into second module
+I'm into first module
+I'm going out of first module
+I'm going out of second module
+I'm going out of first module
+(venv) 
+# ~/PycharmProjects/Python_notes/Python循环导入的坑 [master ✗ (d2c9175)] ➤ python3 second.py 
+I'm into second module
+I'm into first module
+I'm into second module
+I'm going out of second module
+I'm going out of first module
+I'm going out of second module
+(venv) 
+# ~/PycharmProjects/Python_notes/Python循环导入的坑 [master ✗ (d2c9175)] ➤ python3 start.py 
+I'm into start module
+I'm into first module
+I'm into second module
+I'm going out of second module
+I'm going out of first module
+I'm going out of start module
+
+```
+
+参考：https://blog.miguelgrinberg.com/post/flask-webcast-3-circular-dependencies
