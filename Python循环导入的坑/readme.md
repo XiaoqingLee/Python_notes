@@ -95,7 +95,10 @@ I'm going out of start module
 
 说明：
 
-    1.from A import B 的实质是从头到尾执行模块A的语句；import A 也是从头到尾执行A的语句。
+    1.下面三个语句的都会从头到尾执行moduleA的语句：
+        form Outermodule import moduleA
+        from moduleA import a_function
+        import moduleA
 
     2.$ python3 foo.py 命令执行的时候 foo.py的名字是__main__。 （foo.py 是1号参数，python3 是 0号参数）
 
