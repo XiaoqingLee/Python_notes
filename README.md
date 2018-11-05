@@ -1,1 +1,2 @@
-Python的坑
+# Python Notes
+记录Python的坑。
